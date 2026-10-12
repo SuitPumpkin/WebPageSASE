@@ -66,8 +66,6 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitStatus('submitting');
-
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setSubmitStatus('success');
