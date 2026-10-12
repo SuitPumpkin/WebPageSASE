@@ -33,7 +33,7 @@ const Header = () => {
           <span className="sase-header__tagline">Soluciones Avanzadas en Seguridad y Energía</span>
         </div>
 
-        <nav className={`sase-header__nav ${isMobileMenuOpen ? 'sase-header__nav--open' : ''}`} role="navigation" aria-label="Navegación principal">
+        <nav id="main-navigation" className={`sase-header__nav ${isMobileMenuOpen ? 'sase-header__nav--open' : ''}`} aria-label="Navegación principal">
           <ul className="sase-header__list">
             {navLinks.map((link, index) => (
               <li key={link.href} className="sase-header__item reveal" style={{ transitionDelay: `${index * 0.05}s` }}>
