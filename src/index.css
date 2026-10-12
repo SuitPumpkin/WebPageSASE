@@ -304,6 +304,15 @@ address {
   transform: scale(1.02);
 }
 
+.pulse {
+  animation: pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.035); }
+}
+
 .text-gradient {
   background: linear-gradient(105deg, #8fce59 0%, #c1e99a 42%, #ffffff 100%);
   background-clip: text;
@@ -845,6 +854,12 @@ address {
   align-items: center;
   justify-content: center;
   color: var(--color-energy-green-dark);
+}
+
+.sase-services__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .sase-services__title {
