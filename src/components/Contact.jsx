@@ -63,15 +63,22 @@ const Contact = () => {
 
   const [contactRef] = useIntersectionObserver({ rootMargin: '0px 0px -100px 0px' });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitStatus('submitting');
-    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    setSubmitStatus('success');
-    setFormData({ nombre: '', email: '', telefono: '', servicio: '', mensaje: '' });
+    const subject = encodeURIComponent(`Solicitud de cotización SASE: ${formData.nombre}`);
+    const body = encodeURIComponent([
+      `Nombre: ${formData.nombre}`,
+      `Correo: ${formData.email}`,
+      `Teléfono: ${formData.telefono}`,
+      `Servicio: ${formData.servicio || 'No especificado'}`,
+      '',
+      'Detalles del proyecto:',
+      formData.mensaje,
+    ].join('\n'));
 
-    setTimeout(() => setSubmitStatus('idle'), 5000);
+    window.location.href = `mailto:cotizaciones@sase.cl?subject=${subject}&body=${body}`;
+    setSubmitStatus('email');
   };
 
   const handleChange = (e) => {
@@ -127,16 +134,16 @@ const Contact = () => {
           <div className="sase-contact__form-wrapper card reveal reveal-delay-5">
             <h3 className="sase-contact__form-title">Solicita tu cotización</h3>
 
-            {submitStatus === 'success' && (
-              <div className="sase-contact__success" role="alert">
+            {submitStatus === 'email' && (
+              <div className="sase-contact__success" role="status">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#69B52E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                   <polyline points="22 4 12 14.01 9 11.01" />
                 </svg>
-                <h4>¡Mensaje enviado correctamente!</h4>
-                <p>Nuestro equipo se pondrá en contacto contigo a la brevedad.</p>
+                <h4>Tu solicitud está lista para enviarse</h4>
+                <p>Revisa el mensaje preparado en tu aplicación de correo y pulsa Enviar para completar la solicitud.</p>
                 <button type="button" className="btn btn--secondary" onClick={() => setSubmitStatus('idle')}>
-                  Enviar otra consulta
+                  Editar solicitud
                 </button>
               </div>
             )}
