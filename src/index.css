@@ -416,20 +416,21 @@ button {
 }
 
 .js .reveal:not(.is-visible) {
-  opacity: 0;
-  transform: translateY(30px);
+  /* Never hide essential page content while reveal observers initialize. */
+  opacity: 1;
+  transform: none;
 }
 
 .js .reveal--left:not(.is-visible) {
-  transform: translateX(-40px);
+  transform: none;
 }
 
 .js .reveal--right:not(.is-visible) {
-  transform: translateX(40px);
+  transform: none;
 }
 
 .js .reveal--scale:not(.is-visible) {
-  transform: scale(0.9);
+  transform: none;
 }
 
 .reveal.is-visible {
