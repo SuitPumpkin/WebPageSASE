@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/Favicon_SASE.png",
+      "src": "/Shield_SASE.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/Logo_SASE.png",
+      "src": "/Shield_SASE.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
