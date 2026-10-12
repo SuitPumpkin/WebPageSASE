@@ -11,7 +11,6 @@ function App() {
   useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal');
 
-    // Keep all content visible in browsers without IntersectionObserver support.
     if (!('IntersectionObserver' in window)) {
       revealElements.forEach((element) => element.classList.add('is-visible'));
       return undefined;
