@@ -1054,6 +1054,10 @@ address {
   opacity: 0.9;
 }
 
+.sase-stats__number {
+  display: block;
+}
+
 .sase-stats .counter {
   color: var(--color-white);
   font-size: clamp(2rem, 4vw, 3.1rem);
@@ -1279,6 +1283,10 @@ address {
   grid-template-columns: minmax(220px, 1.5fr) repeat(3, minmax(115px, 0.75fr)) minmax(190px, 1fr);
   gap: clamp(1.4rem, 3vw, 2.6rem);
   padding-bottom: 3rem;
+}
+
+.sase-footer__nav {
+  min-width: 0;
 }
 
 .sase-footer__brand {
